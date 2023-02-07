@@ -16,7 +16,11 @@ app.get("/", (req,resp)=>{
 
 //genrating token
 app.post("/user", (req,resp)=>{
-    jwt.sign({},secretkey, {expiresIn: '3000s'},(err,token)=>{
+    const user={
+        username: "yash",
+        passward: 'XYG123'
+    }
+    jwt.sign({user},secretkey, {expiresIn: '3000s'},(err,token)=>{
         resp.json({
             token
         })
