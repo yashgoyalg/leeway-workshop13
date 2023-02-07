@@ -56,7 +56,7 @@ function verifyToken(req,resp,next) {
 
 //Cron jobs
 
-const job = new cron.schedule("*/10 * * * * *", ()=> {
+const job = new cron.schedule("* * * * * ", ()=> {
     let data =`running a task in every 10sec ${new Date()}
         :server is working\n`;
         console.log(data);
