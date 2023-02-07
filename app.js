@@ -24,7 +24,7 @@ app.post("/user", (req,resp)=>{
 });
 
 //vailedation
-app.post('/validate-user',verifyToken,(req,resp)=>{
+app.get('/validate-user',verifyToken,(req,resp)=>{
     jwt.verify(req.token,secretkey,(err,authData)=> {
         if(err){
             resp.send({result: "invaild token"})
@@ -54,7 +54,7 @@ function verifyToken(req,resp,next) {
 
 }
 
-//
+//Cron jobs
 
 const job = new cron.schedule("*/10 * * * * *", ()=> {
     let data =`running a task in every 10sec ${new Date()}
